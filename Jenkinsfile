@@ -3,6 +3,12 @@ pipeline {
     label "master"
   }
 
+  parameters {
+    choice(name: 'server', choices: ['server1', 'server2', 'server3'], description: '') }
+    string(name: 'USERNAME', defaultValue: 'xyz', description: '')
+    password(name: 'PASSWORD', description: 'password')
+  }
+
   stages {
     stage('clone') {
       steps {
@@ -16,7 +22,7 @@ pipeline {
     stage('login') {
       steps {
         script {
-          // sh " "
+          sh "apic-slim.exe login --server ${server} --realm provider/default-idp-2 --username ${USERNAME} --password ${PASSWORD} --accept-license  "
           echo "this is login stage"
         }
       }
