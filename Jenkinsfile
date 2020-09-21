@@ -4,7 +4,7 @@ pipeline {
   }
 
   parameters {
-    choice(name: 'server', choices: ['server1', 'server2', 'server3'], description: '') }
+    choice(name: 'server', choices: ['server1', 'server2', 'server3'], description: '')
     string(name: 'USERNAME', defaultValue: 'xyz', description: '')
     password(name: 'PASSWORD', description: 'password')
   }
